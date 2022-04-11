@@ -12,11 +12,19 @@
   <center>
    <input type="button" id="push" onclick="return push()" value="クリックするとプッシュ通知が送られます">
   </center>
-
-  <script>
+<script>
  function push(){
- Push.create('更新情報');
- }
+  Push.create("更新情報", 
+   {
+    body: "ブログの更新をお知らせします!",
+    icon: 'logo.png',
+    timeout: 8000,
+    onClick: function () {
+    window.focus(); 
+    this.close();
+    }
+  })
+}
 </script>
  </body>
 </html>
